@@ -7,3 +7,10 @@ This allows us to bind events anywhere across the entities used
 without having to create complex hierarchies within nodes when
 connecting signal subscribers.
 """
+
+signal game_won
+signal game_lost
+signal game_restart
+
+signal brick_destroyed(points, coordinate)
+signal ball_destroyed

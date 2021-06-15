@@ -1,12 +1,67 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/start/StartScene.gd" type="Script" id=1]
+[ext_resource path="res://base_theme.tres" type="Theme" id=2]
 
 [node name="StartScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 720, 480 )
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="MBox" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = 60.0
+margin_right = -60.0
+margin_bottom = -60.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="MBox"]
+margin_right = 600.0
+margin_bottom = 360.0
+custom_constants/separation = 32
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameName" type="Label" parent="MBox/VBox"]
+margin_top = 124.0
+margin_right = 600.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 200, 40 )
+custom_colors/font_color = Color( 1, 0.784314, 0.341176, 1 )
+text = "Breakout"
+align = 1
+valign = 1
+
+[node name="Play" type="Button" parent="MBox/VBox"]
+margin_top = 208.0
+margin_right = 400.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 400, 60 )
+size_flags_horizontal = 0
+theme = ExtResource( 2 )
+text = "Play"
+
+[node name="Quit" type="Button" parent="MBox/VBox"]
+margin_top = 300.0
+margin_right = 400.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 400, 60 )
+size_flags_horizontal = 0
+theme = ExtResource( 2 )
+text = "Quit"
+
+[connection signal="pressed" from="MBox/VBox/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MBox/VBox/Quit" to="." method="_on_Quit_pressed"]

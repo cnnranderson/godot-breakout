@@ -1,5 +1,11 @@
 extends Node
 
+enum Scenes {START_MENU, GAME}
+
+const SceneMap = {
+	Scenes.START_MENU: "res://scenes/start/StartScene.tscn",
+	Scenes.GAME: "res://scenes/game/GameScene.tscn"
+}
 const COLORS = {
 	"charcoal": "2E4052",
 	"yellow": "FFC857",
@@ -7,8 +13,20 @@ const COLORS = {
 	"green": "00A6A6",
 	"red": "DA5552"
 }
+const Palette = {
+	"primary": COLORS.charcoal,
+	"secondary": COLORS.yellow,
+	"bricks": COLORS.yellow
+}
 
 var main : Main = null
+var debug = true
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
+
+func _process(_delta):
+	if debug:
+		# Easy exit
+		if Input.is_action_pressed("debug_quit"):
+			get_tree().quit()
