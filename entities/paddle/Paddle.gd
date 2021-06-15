@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-export(float) var speed = 800.0
+export(int) var speed = 800
+export(int) var start_y = 440
 
 var velocity = Vector2()
 var target = Vector2()
@@ -13,6 +14,7 @@ func _input(event):
 	target = get_global_mouse_position()
 
 func _physics_process(delta):
+	position.y = start_y
 	velocity = position.direction_to(target) * speed
 	velocity.y = 0
 	velocity = move_and_slide(velocity)
