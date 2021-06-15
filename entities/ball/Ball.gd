@@ -14,13 +14,18 @@ func _physics_process(delta):
 	
 	if collision:
 		var obj = collision.collider
-		print(obj.get_meta("Type"))
-		if obj.name == "Paddle" or obj.name == "Walls":
-			velocity = velocity.bounce(collision.normal)
-		if obj.get_meta("type") == "brick":
-			velocity = velocity.bounce(collision.normal)
-			if obj.has_method("hit"):
-				obj.hit()
+		print(obj.get_meta("type"))
+		
+		match obj.get_meta("type"):
+			"brick":
+				velocity = velocity.bounce(collision.normal)
+				if obj.has_method("hit"):
+					obj.hit()
+			"paddle":
+				velocity = velocity.bounce(collision.normal)
+				if obj.has_method("bounce"):
+					obj.bounce()
+			_: velocity = velocity.bounce(collision.normal)
 
 func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	Events.emit_signal("ball_destroyed")

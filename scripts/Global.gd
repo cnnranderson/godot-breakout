@@ -16,7 +16,8 @@ const COLORS = {
 const Palette = {
 	"primary": COLORS.charcoal,
 	"secondary": COLORS.yellow,
-	"bricks": COLORS.yellow
+	"bricks": COLORS.yellow,
+	"bricks_double": COLORS.red
 }
 
 var main : Main = null

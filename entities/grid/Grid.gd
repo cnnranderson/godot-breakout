@@ -27,6 +27,7 @@ func _create_brick(coord):
 	var brick = _Brick.instance()
 	brick.grid_coord = coord
 	brick.position = Vector2(coord.x * 40 + 80, coord.y * 20 + 40)
+	brick.hp = 2 if randf() > .75 else 1
 	return brick
 
 func _Event_brick_destroyed(points, coordinate):
