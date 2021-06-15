@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Main",
+"language": "GDScript",
+"path": "res://scenes/main/Main.gd"
+} ]
+_global_script_class_icons={
+"Main": ""
+}
+
+[application]
+
+config/name="Breakout"
+run/main_scene="res://scenes/main/MainScene.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://scripts/Global.gd"
+Events="*res://scripts/Events.gd"
+Sounds="*res://scripts/Sounds.gd"
+GameState="*res://scripts/GameState.gd"
+
+[display]
+
+window/size/width=720
+window/size/height=480
+window/size/resizable=false
+
+[physics]
+
+common/enable_pause_aware_picking=true
