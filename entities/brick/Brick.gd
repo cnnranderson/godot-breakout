@@ -12,6 +12,8 @@ var grid_coord = Vector2(0, 0)
 
 func _ready():
 	set_meta("type", "brick")
+
+func _process(delta):
 	var color = COLOR_SINGLE if hp < 2 else COLOR_DOUBLE
 	$Sprite.material.set_shader_param("SelectedColor", color)
 
@@ -19,8 +21,6 @@ func hit():
 	if hp > 0:
 		hp -= 1
 	
-	var color = COLOR_SINGLE if hp < 2 else COLOR_DOUBLE
-	$Sprite.material.set_shader_param("SelectedColor", color)
 	if hp == 0:
 		Events.emit_signal("brick_destroyed", points, grid_coord)
 		queue_free()

@@ -21,7 +21,7 @@ position = Vector2( 360, 440 )
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( -20, -25, 745, -25, 745, 500, 720, 500, 720, 0, 0, 0, 0, 500, -25, 500 )
+polygon = PoolVector2Array( -20, -20, 740, -20, 740, 500, 720, 500, 720, 0, 0, 0, 0, 500, -20, 500 )
 
 [node name="Timers" type="CanvasLayer" parent="."]
 
