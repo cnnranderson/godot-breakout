@@ -27,8 +27,10 @@ __meta__ = {
 }
 
 [node name="VBox" type="VBoxContainer" parent="MBox"]
-margin_right = 600.0
+margin_left = 100.0
+margin_right = 500.0
 margin_bottom = 360.0
+size_flags_horizontal = 4
 custom_constants/separation = 32
 alignment = 2
 __meta__ = {
@@ -37,7 +39,7 @@ __meta__ = {
 
 [node name="GameName" type="Label" parent="MBox/VBox"]
 margin_top = 124.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 176.0
 rect_min_size = Vector2( 200, 40 )
 custom_colors/font_color = Color( 1, 0.784314, 0.341176, 1 )

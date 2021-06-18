@@ -16,7 +16,6 @@ func _input(event):
 	target = get_global_mouse_position()
 
 func _physics_process(delta):
-	position.y = start_y
 	velocity = position.direction_to(target) * speed
 	velocity = move_and_slide(velocity)
 	

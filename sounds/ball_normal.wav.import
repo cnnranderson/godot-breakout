@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ball_normal.wav-4ab28ff60a271dc1ee0d222f75d4841c.sample"
+
+[deps]
+
+source_file="res://sounds/ball_normal.wav"
+dest_files=[ "res://.import/ball_normal.wav-4ab28ff60a271dc1ee0d222f75d4841c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

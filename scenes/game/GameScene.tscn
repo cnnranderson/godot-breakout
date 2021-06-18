@@ -26,7 +26,6 @@ polygon = PoolVector2Array( -20, -20, 740, -20, 740, 500, 720, 500, 720, 0, 0, 0
 [node name="Timers" type="CanvasLayer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="Timers"]
-wait_time = 3.0
 one_shot = true
 
 [node name="Hud" type="CanvasLayer" parent="."]
