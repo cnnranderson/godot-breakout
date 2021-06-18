@@ -24,6 +24,7 @@ func _physics_process(delta):
 		var reflect = collision.remainder.bounce(collision.normal)
 		move_and_collide(reflect)
 		
+		
 		# Inform objects they were hit
 		match obj.get_meta("type"):
 			"brick":
@@ -36,6 +37,7 @@ func _physics_process(delta):
 				hit_chain = 0
 				Sounds.play_sound(Sounds.SoundType.SFX, SFX_NORMAL)
 			_:
+				Events.emit_signal("screen_shake")
 				Sounds.play_sound(Sounds.SoundType.SFX, SFX_NORMAL)
 			
 

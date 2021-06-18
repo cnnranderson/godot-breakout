@@ -11,6 +11,7 @@ connecting signal subscribers.
 signal game_won
 signal game_lost
 signal game_restart
+signal screen_shake
 
 signal brick_destroyed(points, coordinate)
 signal ball_destroyed
