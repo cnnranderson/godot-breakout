@@ -19,7 +19,7 @@ func _process(delta):
 	$Hud/StartCountdownLabel.text = str(ceil($Timers/StartTimer.time_left))
 
 func _spawn_ball(pos):
-	if !is_instance_valid(active_ball):
+	if !is_instance_valid(active_ball) or true:
 		var ball = _Ball.instance()
 		ball.position = pos
 		active_ball = ball

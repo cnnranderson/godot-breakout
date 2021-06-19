@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Main",
 "language": "GDScript",
 "path": "res://scenes/main/Main.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Paddle",
+"language": "GDScript",
+"path": "res://entities/paddle/Paddle.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
 "Brick": "",
 "Grid": "",
-"Main": ""
+"Main": "",
+"Paddle": ""
 }
 
 [application]

@@ -3,9 +3,11 @@ class_name Ball
 
 const SFX_NORMAL = "res://sounds/ball_normal.wav"
 
-export(int) var speed = 400
+export(int) var speed = 200
 
-var velocity = Vector2(1, 2).normalized() * speed
+onready var width = $Sprite.texture.get_width() * scale.x
+
+var velocity = Vector2(0, 1).normalized() * speed
 var hit_chain = 0
 
 func _ready():
@@ -17,13 +19,10 @@ func _physics_process(delta):
 	if collision:
 		var obj = collision.collider
 		
-		# Bounce velocity
-		velocity = velocity.bounce(collision.normal)
-		
 		# Flip and consume the remaining velocity
+		velocity = velocity.bounce(collision.normal)
 		var reflect = collision.remainder.bounce(collision.normal)
 		move_and_collide(reflect)
-		
 		
 		# Inform objects they were hit
 		match obj.get_meta("type"):
@@ -35,6 +34,7 @@ func _physics_process(delta):
 					obj.hit()
 			"paddle":
 				hit_chain = 0
+				velocity = -position.direction_to(obj.position) * speed
 				Sounds.play_sound(Sounds.SoundType.SFX, SFX_NORMAL)
 			_:
 				Events.emit_signal("screen_shake")
