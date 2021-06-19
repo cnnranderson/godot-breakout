@@ -33,7 +33,7 @@ func _create_brick(coord):
 	brick.position = Vector2(coord.x * (640.0 / (grid_size.x - 1)) + x_bounds, \
 							coord.y * (200.0 / (grid_size.y - 1)) + y_bounds)
 	brick.hp = 2 if Helpers.chance_luck(25) else 1
-	brick.powerup = POWERUP_MULTI
+	brick.powerup = POWERUP_MULTI if Helpers.chance_luck(50) else null
 	return brick
 
 func _Event_brick_destroyed(points, coordinate):

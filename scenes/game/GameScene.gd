@@ -32,7 +32,9 @@ func _Event_brick_destroyed(points, coordinate):
 
 func _Event_powerup_obtained(powerup : Powerup, pos):
 	match powerup.type:
-		"Multi": _spawn_ball(pos)
+		"Multi": 
+			pos.y -= 10
+			_spawn_ball(pos)
 		_: print("some other pow")
 
 func _Event_powerup_dropped(powerup, pos):
