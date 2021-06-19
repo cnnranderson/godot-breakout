@@ -9,6 +9,9 @@ func _ready():
 	Events.connect("ball_destroyed", self, "_Event_ball_destroyed")
 	Events.connect("game_lost", self, "_Event_game_lost")
 	Events.connect("game_won", self, "_Event_game_won")
+	Events.connect("powerup_obtained", self, "_Event_powerup_obtained")
+	Events.connect("powerup_dropped", self, "_Event_powerup_dropped")
+	
 	$Hud/StartCountdownLabel.material.set_shader_param("SelectedColor", Color(Global.Palette.secondary))
 	$Timers/StartTimer.start()
 
@@ -19,14 +22,23 @@ func _process(delta):
 	$Hud/StartCountdownLabel.text = str(ceil($Timers/StartTimer.time_left))
 
 func _spawn_ball(pos):
-	if !is_instance_valid(active_ball) or true:
-		var ball = _Ball.instance()
-		ball.position = pos
-		active_ball = ball
-		add_child(ball)
+	var ball = _Ball.instance()
+	ball.position = pos
+	active_ball = ball
+	add_child(ball)
 
 func _Event_brick_destroyed(points, coordinate):
 	print("Brick destroyed for %s points" % str(points))
+
+func _Event_powerup_obtained(powerup : Powerup, pos):
+	match powerup.type:
+		"Multi": _spawn_ball(pos)
+		_: print("some other pow")
+
+func _Event_powerup_dropped(powerup, pos):
+	var pow_item = load(powerup).instance()
+	pow_item.position = pos
+	add_child(pow_item)
 
 func _on_StartTimer_timeout():
 	$Grid.reset()

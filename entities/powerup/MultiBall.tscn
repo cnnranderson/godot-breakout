@@ -63,10 +63,11 @@ tracks/0/keys = {
 material = SubResource( 7 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
+type = "Multi"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Flash"
-playback_speed = 2.5
+playback_speed = 4.0
 anims/Flash = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -78,4 +79,5 @@ shape = SubResource( 4 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -20, -20, 40, 40 )
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

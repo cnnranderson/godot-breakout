@@ -23,4 +23,3 @@ func _physics_process(delta):
 	
 	position.x = clamp(position.x, width / 2, 720 - width / 2)
 	position.y = start_y
-	width

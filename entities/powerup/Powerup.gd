@@ -2,7 +2,7 @@ extends Sprite
 class_name Powerup
 
 export var drop_speed = 2.0
-export(String, "Multi", "Large") var type : String
+export(String, "Multi", "Large", "None") var type : String = "None"
 
 func _process(delta):
 	if Engine.editor_hint:
@@ -15,3 +15,8 @@ func trigger_powerup():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
+func _on_Area2D_body_entered(body):
+	if body is Paddle:
+		Events.emit_signal("powerup_obtained", self, position)
+		queue_free()

@@ -14,5 +14,6 @@ signal game_restart
 signal screen_shake
 
 signal brick_destroyed(points, coordinate)
-signal drop_powerup(powerup, position)
+signal powerup_obtained(powerup, pos)
+signal powerup_dropped(powerup, pos)
 signal ball_destroyed
