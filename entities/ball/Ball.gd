@@ -3,12 +3,12 @@ class_name Ball
 
 const SFX_NORMAL = "res://sounds/ball_normal.wav"
 
-export(int) var speed = 200
+export(int) var speed = 350
 
 onready var width = $Sprite.texture.get_width() * scale.x
 
-var velocity = Vector2(0, 1).normalized() * speed
 var hit_chain = 0
+var velocity = Vector2(0, 1).normalized() * speed
 
 func _ready():
 	$Sprite.material.set_shader_param("SelectedColor", Color(Global.Palette.secondary))

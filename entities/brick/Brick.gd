@@ -9,6 +9,7 @@ export(int) var points = 50
 export(int) var hp = 1
 
 var grid_coord = Vector2(0, 0)
+var powerup : Powerup
 
 func _ready():
 	set_meta("type", "brick")
@@ -23,4 +24,7 @@ func hit():
 	
 	if hp == 0:
 		Events.emit_signal("brick_destroyed", points, grid_coord)
+		
+		if powerup:
+			Events.emit_signal("drop_powerup", powerup, position)
 		queue_free()
