@@ -12,7 +12,7 @@ jobs:
           file: HTML.zip
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - name: release windows
+      - name: Release HTML
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_SECRET }}
@@ -29,7 +29,7 @@ jobs:
           file: Mac.zip
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - name: release windows
+      - name: Release Mac
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_SECRET }}
@@ -46,7 +46,7 @@ jobs:
           file: Windows.zip
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - name: release windows
+      - name: Release Windows
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_SECRET }}
