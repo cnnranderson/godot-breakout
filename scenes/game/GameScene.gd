@@ -28,14 +28,13 @@ func _spawn_ball(pos):
 	add_child(ball)
 
 func _Event_brick_destroyed(points, coordinate):
-	print("Brick destroyed for %s points" % str(points))
+	pass
 
 func _Event_powerup_obtained(powerup : Powerup, pos):
 	match powerup.type:
 		"Multi": 
 			pos.y -= 10
 			_spawn_ball(pos)
-		_: print("some other pow")
 
 func _Event_powerup_dropped(powerup, pos):
 	var pow_item = load(powerup).instance()

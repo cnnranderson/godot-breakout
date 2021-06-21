@@ -26,6 +26,5 @@ func hit():
 		Events.emit_signal("brick_destroyed", points, grid_coord)
 		
 		if powerup:
-			print(position)
 			Events.emit_signal("powerup_dropped", powerup, global_position)
 		queue_free()

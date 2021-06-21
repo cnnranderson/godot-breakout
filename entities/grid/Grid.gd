@@ -18,6 +18,7 @@ func reset():
 	_init_grid()
 
 func _init_grid():
+	LevelLoader.load_level(LevelLoader.Level.TEST_LEVEL)
 	grid = []
 	for i in range(grid_size.y):
 		grid.append([])
