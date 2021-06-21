@@ -2,7 +2,7 @@ extends Node2D
 
 const _Ball = preload("res://entities/ball/Ball.tscn")
 
-var active_ball : Ball
+var active_balls = []
 
 func _ready():
 	Events.connect("brick_destroyed", self, "_Event_brick_destroyed")
@@ -24,17 +24,21 @@ func _process(delta):
 func _spawn_ball(pos):
 	var ball = _Ball.instance()
 	ball.position = pos
-	active_ball = ball
+	active_balls.append(ball)
 	add_child(ball)
 
 func _Event_brick_destroyed(points, coordinate):
-	pass
+	GameState.total_score += points
+	$Hud/Score/Value.text = str("%05d" % GameState.total_score)
 
 func _Event_powerup_obtained(powerup : Powerup, pos):
 	match powerup.type:
 		"Multi": 
 			pos.y -= 10
 			_spawn_ball(pos)
+		"Grow_Ball":
+			for ball in active_balls:
+				ball.grow()
 
 func _Event_powerup_dropped(powerup, pos):
 	var pow_item = load(powerup).instance()

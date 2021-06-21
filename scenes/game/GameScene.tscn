@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/game/GameScene.gd" type="Script" id=1]
 [ext_resource path="res://entities/paddle/Paddle.tscn" type="PackedScene" id=2]
@@ -6,10 +6,15 @@
 [ext_resource path="res://base_theme.tres" type="Theme" id=4]
 [ext_resource path="res://shaders/palette.shader" type="Shader" id=5]
 [ext_resource path="res://scenes/game/Camera.gd" type="Script" id=6]
+[ext_resource path="res://fonts/romulus.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 shader_param/SelectedColor = Color( 0.18, 0.25, 0.32, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 7 )
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,20 +28,18 @@ script = ExtResource( 6 )
 position = Vector2( 360, 580 )
 
 [node name="Grid" parent="." instance=ExtResource( 3 )]
-position = Vector2( 360, 140 )
+position = Vector2( 360, 160 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 polygon = PoolVector2Array( -20, -20, 740, -20, 740, 640, 720, 640, 720, 0, 0, 0, 0, 640, -20, 640 )
 
-[node name="Timers" type="CanvasLayer" parent="."]
-
-[node name="StartTimer" type="Timer" parent="Timers"]
-wait_time = 3.0
-one_shot = true
-
-[node name="Hud" type="CanvasLayer" parent="."]
+[node name="Hud" type="Control" parent="."]
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartCountdownLabel" type="Label" parent="Hud"]
 material = SubResource( 1 )
@@ -44,14 +47,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
+margin_left = 345.0
+margin_top = 295.0
+margin_right = 385.0
+margin_bottom = 347.0
 theme = ExtResource( 4 )
 text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Score" type="HBoxContainer" parent="Hud"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 10.0
+margin_right = 324.0
+margin_bottom = 50.0
+custom_constants/separation = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Hud/Score"]
+margin_top = 6.0
+margin_right = 74.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.784314, 0.341176, 1 )
+text = "Score:"
+
+[node name="Value" type="Label" parent="Hud/Score"]
+margin_left = 86.0
+margin_top = 6.0
+margin_right = 156.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.784314, 0.341176, 1 )
+text = "00000"
+
+[node name="Timers" type="CanvasLayer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="Timers/StartTimer" to="." method="_on_StartTimer_timeout"]

@@ -2,7 +2,7 @@ extends Sprite
 class_name Powerup
 
 export var drop_speed = 2.0
-export(String, "Multi", "Large", "None") var type : String = "None"
+export(String, "Multi", "Grow_Ball", "Grow_Paddle", "None") var type : String = "None"
 
 func _process(delta):
 	position.y += drop_speed * delta

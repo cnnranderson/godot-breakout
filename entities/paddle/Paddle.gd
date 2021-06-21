@@ -15,12 +15,8 @@ func _ready():
 
 func _process(delta):
 	target = get_global_mouse_position()
-	# scale = Vector2(3, max((speed - abs(velocity.x)) / speed * 3, .25))
 
 func _physics_process(delta):
-	# velocity = position.direction_to(target) * speed
-	# velocity = move_and_slide(velocity)
-	
 	position.x = lerp(position.x, target.x, speed * delta)
 	position.x = clamp(position.x, width / 2, 720 - width / 2)
 	position.y = start_y
