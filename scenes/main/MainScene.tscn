@@ -1,6 +1,65 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/main/Main.gd" type="Script" id=1]
+[ext_resource path="res://shaders/diamond.shader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 2 )
+shader_param/progress = 0.0
+shader_param/diamondPixelSize = 32.0
+shader_param/direction = true
+
+[sub_resource type="Animation" id=4]
+resource_name = "transition_in"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.84, -0.729186, 0.25, 0.21702 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/direction")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "transition_out"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/direction")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,3 +78,30 @@ __meta__ = {
 }
 
 [node name="Scene" type="Node2D" parent="."]
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="Screen" type="ColorRect" parent="TransitionLayer"]
+material = SubResource( 5 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 720, 640 )
+mouse_filter = 2
+color = Color( 1, 0.784314, 0.341176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animation" type="AnimationPlayer" parent="TransitionLayer/Screen"]
+playback_speed = 2.0
+anims/transition_in = SubResource( 4 )
+anims/transition_out = SubResource( 6 )
+
+[node name="Timers" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="LoadTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[connection signal="timeout" from="Timers/LoadTimer" to="." method="_on_LoadTimer_timeout"]
