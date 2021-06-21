@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://fonts/romulus.ttf" type="DynamicFontData" id=1]
 
@@ -6,6 +6,9 @@
 size = 32
 extra_spacing_char = 4
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.180392, 0.196078, 0.286275, 0 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -49,7 +52,7 @@ Button/colors/font_color_hover = Color( 0.882353, 0.882353, 0.882353, 1 )
 Button/colors/font_color_pressed = Color( 0.180392, 0.25098, 0.321569, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = SubResource( 1 )
-Button/styles/disabled = null
+Button/styles/disabled = SubResource( 7 )
 Button/styles/focus = SubResource( 2 )
 Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 4 )

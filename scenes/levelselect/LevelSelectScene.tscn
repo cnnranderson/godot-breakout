@@ -42,7 +42,7 @@ text = "Levels:"
 [node name="Scroll" type="ScrollContainer" parent="LevelSelect/VBox"]
 margin_top = 40.0
 margin_right = 260.0
-margin_bottom = 600.0
+margin_bottom = 556.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,7 +50,28 @@ __meta__ = {
 
 [node name="List" type="VBoxContainer" parent="LevelSelect/VBox/Scroll"]
 margin_right = 260.0
-margin_bottom = 560.0
+margin_bottom = 516.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 13
+
+[node name="BackButton" type="Button" parent="LevelSelect/VBox"]
+margin_top = 568.0
+margin_right = 260.0
+margin_bottom = 600.0
+text = "Back To Menu"
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 390.0
+margin_top = 300.0
+margin_right = 590.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 200, 32 )
+theme = ExtResource( 2 )
+disabled = true
+text = "Play Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
