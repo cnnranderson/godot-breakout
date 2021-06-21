@@ -20,3 +20,12 @@ func _physics_process(delta):
 	position.x = lerp(position.x, target.x, speed * delta)
 	position.x = clamp(position.x, width / 2, 720 - width / 2)
 	position.y = start_y
+
+func grow():
+	$Tween.interpolate_property(self, "scale", scale, Vector2(5, 3), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.start()
+	$ScaleTimer.start()
+
+func _on_ScaleTimer_timeout():
+	$Tween.interpolate_property(self, "scale", scale, Vector2(3, 3), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.start()

@@ -3,7 +3,7 @@ class_name Powerup
 
 const MULTI = "res://entities/powerup/MultiBall.tscn"
 const GROW_BALL = "res://entities/powerup/GrowBall.tscn"
-const GROW_PADDLE = "res://entities/powerup/GrowBall.tscn"
+const GROW_PADDLE = "res://entities/powerup/GrowPaddle.tscn"
 
 enum Type {MULTI, GROW_BALL, GROW_PADDLE, NONE}
 

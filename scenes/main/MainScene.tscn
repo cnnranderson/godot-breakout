@@ -3,13 +3,13 @@
 [ext_resource path="res://scenes/main/Main.gd" type="Script" id=1]
 [ext_resource path="res://shaders/diamond.shader" type="Shader" id=2]
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
 shader_param/progress = 0.0
 shader_param/diamondPixelSize = 32.0
 shader_param/direction = true
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "transition_in"
 length = 2.0
 tracks/0/type = "bezier"
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "transition_out"
 length = 2.0
 tracks/0/type = "bezier"
@@ -83,7 +83,7 @@ __meta__ = {
 pause_mode = 2
 
 [node name="Screen" type="ColorRect" parent="TransitionLayer"]
-material = SubResource( 5 )
+material = SubResource( 1 )
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 720, 640 )
@@ -95,8 +95,8 @@ __meta__ = {
 
 [node name="Animation" type="AnimationPlayer" parent="TransitionLayer/Screen"]
 playback_speed = 2.0
-anims/transition_in = SubResource( 4 )
-anims/transition_out = SubResource( 6 )
+anims/transition_in = SubResource( 2 )
+anims/transition_out = SubResource( 3 )
 
 [node name="Timers" type="CanvasLayer" parent="."]
 pause_mode = 2

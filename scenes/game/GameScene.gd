@@ -42,6 +42,8 @@ func _Event_powerup_obtained(powerup : Powerup, pos):
 		Powerup.Type.GROW_BALL:
 			for ball in $Balls.get_children():
 				ball.grow()
+		Powerup.Type.GROW_PADDLE:
+			$Paddle.grow()
 
 func _Event_powerup_dropped(powerup, pos):
 	var pow_item = load(powerup).instance()
