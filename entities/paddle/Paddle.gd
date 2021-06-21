@@ -1,8 +1,8 @@
 extends KinematicBody2D
 class_name Paddle
 
-export(int) var speed = 0.00001
-export(int) var start_y = 440
+export(int) var speed = 20
+export(int) var start_y = 580
 
 onready var width = $Sprite.texture.get_width() * scale.x
 
@@ -21,6 +21,6 @@ func _physics_process(delta):
 	# velocity = position.direction_to(target) * speed
 	# velocity = move_and_slide(velocity)
 	
-	position.x = lerp(target.x, position.x, speed)
+	position.x = lerp(position.x, target.x, speed * delta)
 	position.x = clamp(position.x, width / 2, 720 - width / 2)
 	position.y = start_y
