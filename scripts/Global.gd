@@ -27,10 +27,6 @@ func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
 func _process(_delta):
-	if Input.is_action_just_pressed("enable_debug"):
-		debug = !debug
-	
 	if debug:
-		# Easy exit
 		if Input.is_action_pressed("debug_quit"):
 			get_tree().quit()

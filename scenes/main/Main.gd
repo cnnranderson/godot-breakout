@@ -25,7 +25,7 @@ func load_scene(scene = -1, skip_intro = false, skip_outro = false):
 			$Timers/LoadTimer.start()
 			scene_state = 1 if not skip_transition[0] else 2
 		1:
-			# Begin transition
+			# Enter transition
 			$TransitionLayer/Screen/Animation.play("transition_in")
 			$Timers/LoadTimer.set_wait_time(1)
 			$Timers/LoadTimer.start()
@@ -43,6 +43,7 @@ func load_scene(scene = -1, skip_intro = false, skip_outro = false):
 			$Timers/LoadTimer.start()
 			scene_state = 3 if not skip_transition[0] else 4
 		3:
+			# Exit transition
 			$TransitionLayer/Screen/Animation.play("transition_out")
 			$Timers/LoadTimer.set_wait_time(1)
 			$Timers/LoadTimer.start()

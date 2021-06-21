@@ -16,7 +16,7 @@ func _ready():
 	$Timers/StartTimer.start()
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_up") and Global.debug:
 		_spawn_ball(get_global_mouse_position())
 	
 	$Hud/StartCountdownLabel.text = str(ceil($Timers/StartTimer.time_left))
