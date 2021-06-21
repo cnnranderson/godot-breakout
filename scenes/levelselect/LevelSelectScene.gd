@@ -47,3 +47,6 @@ func _on_Button_toggled(button_pressed, level_id):
 
 func _on_PlayButton_pressed():
 	Global.main.load_scene(Global.Scenes.GAME)
+
+func _on_BackButton_pressed():
+	Global.main.load_scene(Global.Scenes.START_MENU)

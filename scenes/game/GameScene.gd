@@ -52,3 +52,6 @@ func _on_StartTimer_timeout():
 	$Grid.reset()
 	_spawn_ball(Vector2(360, 240))
 	$Hud/StartCountdownLabel.visible = false
+
+func _on_BackButton_pressed():
+	Global.main.load_scene(Global.Scenes.LEVEL_SELECT)

@@ -88,10 +88,20 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.784314, 0.341176, 1 )
 text = "00000"
 
+[node name="BackButton" type="Button" parent="Hud"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 620.0
+margin_top = 10.0
+margin_right = 696.0
+margin_bottom = 42.0
+text = "Back"
+
 [node name="Timers" type="CanvasLayer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="Timers"]
 wait_time = 3.0
 one_shot = true
 
+[connection signal="pressed" from="Hud/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="timeout" from="Timers/StartTimer" to="." method="_on_StartTimer_timeout"]
