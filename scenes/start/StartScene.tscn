@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/start/StartScene.gd" type="Script" id=1]
 [ext_resource path="res://base_theme.tres" type="Theme" id=2]
+[ext_resource path="res://fonts/romulus.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 3 )
 
 [node name="StartScene" type="Control"]
 anchor_right = 1.0
@@ -29,7 +34,7 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="MBox"]
 margin_left = 100.0
 margin_right = 500.0
-margin_bottom = 360.0
+margin_bottom = 520.0
 size_flags_horizontal = 4
 custom_constants/separation = 32
 alignment = 2
@@ -38,28 +43,29 @@ __meta__ = {
 }
 
 [node name="GameName" type="Label" parent="MBox/VBox"]
-margin_top = 124.0
+margin_top = 295.0
 margin_right = 400.0
-margin_bottom = 176.0
+margin_bottom = 336.0
 rect_min_size = Vector2( 200, 40 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.784314, 0.341176, 1 )
 text = "Breakout"
 align = 1
 valign = 1
 
 [node name="Play" type="Button" parent="MBox/VBox"]
-margin_top = 208.0
+margin_top = 368.0
 margin_right = 400.0
-margin_bottom = 268.0
+margin_bottom = 428.0
 rect_min_size = Vector2( 400, 60 )
 size_flags_horizontal = 0
 theme = ExtResource( 2 )
 text = "Play"
 
 [node name="Quit" type="Button" parent="MBox/VBox"]
-margin_top = 300.0
+margin_top = 460.0
 margin_right = 400.0
-margin_bottom = 360.0
+margin_bottom = 520.0
 rect_min_size = Vector2( 400, 60 )
 size_flags_horizontal = 0
 theme = ExtResource( 2 )

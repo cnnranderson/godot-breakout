@@ -10,7 +10,7 @@ font_data = ExtResource( 1 )
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.180392, 0.25098, 0.321569, 1 )
+bg_color = Color( 0.180392, 0.25098, 0.321569, 0 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -19,7 +19,7 @@ border_color = Color( 1, 0.784314, 0.341176, 1 )
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.180392, 0.25098, 0.321569, 1 )
+bg_color = Color( 0.180392, 0.25098, 0.321569, 0 )
 draw_center = false
 border_width_left = 2
 border_width_top = 2
@@ -38,7 +38,7 @@ border_color = Color( 1, 0.784314, 0.341176, 1 )
 anti_aliasing = false
 
 [sub_resource type="DynamicFont" id=6]
-size = 60
+size = 32
 font_data = ExtResource( 1 )
 
 [resource]

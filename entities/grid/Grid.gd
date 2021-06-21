@@ -5,6 +5,7 @@ const _Brick = preload("res://entities/brick/Brick.tscn")
 
 export(Vector2) var grid_size = Vector2(16, 8)
 
+var level_id = 1
 var grid = []
 var bricks_left = 0
 var x_bounds = -320
@@ -17,8 +18,9 @@ func reset():
 	_init_grid()
 
 func _init_grid():
-	var level = LevelLoader.load_level(LevelLoader.Level.TEST_LEVEL)
-	print("Loaded level: %s" % level.name)
+	if level_id == -1:
+		return
+	var level = LevelLoader.load_level(level_id)
 	grid_size = Vector2(level.columns, level.rows)
 	
 	grid = []

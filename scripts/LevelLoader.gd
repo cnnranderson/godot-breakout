@@ -4,21 +4,29 @@ enum Level {
 	TEST_LEVEL
 }
 
-var Levels = {
-	Level.TEST_LEVEL: "res://levels/level_1.tres"
-}
+const LEVEL_LIST_FILE = "res://levels/level_list.tres"
+const LEVEL_FILE = "res://levels/level_%d.tres"
 
-func load_level(level_name):
-	assert(level_name in Level.values())
-	
-	# "res://levels/level_%s.tres", % 
-	var level = File.new()
-	if not level.file_exists(Levels[level_name]):
-		print(Levels[level_name])
+var level_list = []
+
+func load_level_list():
+	var list = File.new()
+	if not list.file_exists(LEVEL_LIST_FILE):
 		print("Doesn't exist")
 		return
 	
-	level.open(Levels[level_name], File.READ)
+	list.open(LEVEL_LIST_FILE, File.READ)
+	level_list = parse_json(list.get_as_text())
+	list.close()
+
+func load_level(level_id):
+	var level = File.new()
+	if not level.file_exists(LEVEL_FILE % level_id):
+		print("Level doesn't exist: %d" % level_id)
+		return
+	
+	level.open(LEVEL_FILE % level_id, File.READ)
 	var level_data = parse_json(level.get_as_text())
 	level.close()
+	print("Loaded level: %s" % level.name)
 	return level_data
