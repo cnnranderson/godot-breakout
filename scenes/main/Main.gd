@@ -32,7 +32,7 @@ func load_scene(scene = -1, skip_intro = false, skip_outro = false):
 			scene_state = 2
 		2:
 			# Load the new scene
-			print("LOADING Scene: %s" % scene)
+			print("LOADING Scene: %s" % curr_scene)
 			var children = $Scene.get_children()
 			if not children.empty():
 				children[0].queue_free()

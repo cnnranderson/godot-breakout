@@ -2,7 +2,6 @@ extends Node2D
 class_name Grid
 
 const _Brick = preload("res://entities/brick/Brick.tscn")
-const POWERUP_MULTI = "res://entities/powerup/MultiBall.tscn"
 
 export(Vector2) var grid_size = Vector2(16, 8)
 
@@ -38,7 +37,7 @@ func _create_brick(coord, hp):
 	brick.position = Vector2(coord.x * (640.0 / (grid_size.x - 1)) + x_bounds, \
 							coord.y * (200.0 / (grid_size.y - 1)) + y_bounds)
 	brick.hp = hp
-	brick.powerup = POWERUP_MULTI if Helpers.chance_luck(50) else null
+	brick.powerup = Powerup.MULTI if Helpers.chance_luck(50) else Powerup.GROW_BALL
 	return brick
 
 func _Event_brick_destroyed(points, coordinate):

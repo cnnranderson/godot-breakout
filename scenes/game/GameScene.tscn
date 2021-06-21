@@ -30,6 +30,8 @@ position = Vector2( 360, 580 )
 [node name="Grid" parent="." instance=ExtResource( 3 )]
 position = Vector2( 360, 160 )
 
+[node name="Balls" type="Node2D" parent="."]
+
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]

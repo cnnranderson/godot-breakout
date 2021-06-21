@@ -63,7 +63,7 @@ tracks/0/keys = {
 material = SubResource( 2 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
-type = "Multi"
+type = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Flash"

@@ -41,7 +41,6 @@ func _physics_process(delta):
 				Sounds.play_sound(Sounds.SoundType.SFX, SFX_NORMAL)
 
 func grow():
-	print("GROW")
 	$Tween.interpolate_property(self, "scale", scale, Vector2.ONE * 4, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
 	$ScaleTimer.start()
@@ -51,6 +50,5 @@ func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	queue_free()
 
 func _on_ScaleTimer_timeout():
-	print("SHRINK")
 	$Tween.interpolate_property(self, "scale", scale, Vector2.ONE * 1.5, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
