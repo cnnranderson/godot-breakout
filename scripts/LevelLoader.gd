@@ -9,6 +9,9 @@ const LEVEL_FILE = "res://levels/level_%d.tres"
 
 var level_list = []
 
+func _ready():
+	load_level_list()
+
 func load_level_list():
 	var list = File.new()
 	if not list.file_exists(LEVEL_LIST_FILE):
@@ -28,5 +31,5 @@ func load_level(level_id):
 	level.open(LEVEL_FILE % level_id, File.READ)
 	var level_data = parse_json(level.get_as_text())
 	level.close()
-	print("Loaded level: %s" % level.name)
+	print("Loaded level: %s" % level_id)
 	return level_data

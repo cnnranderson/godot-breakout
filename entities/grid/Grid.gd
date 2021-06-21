@@ -5,7 +5,6 @@ const _Brick = preload("res://entities/brick/Brick.tscn")
 
 export(Vector2) var grid_size = Vector2(16, 8)
 
-var level_id = 1
 var grid = []
 var bricks_left = 0
 var x_bounds = -320
@@ -18,17 +17,25 @@ func reset():
 	_init_grid()
 
 func _init_grid():
-	if level_id == -1:
+	if not GameState.selected_level:
 		return
-	var level = LevelLoader.load_level(level_id)
+	
+	var bricks = $Bricks.get_children()
+	for brick in bricks:
+		brick.queue_free()
+	
+	var level = GameState.selected_level
 	grid_size = Vector2(level.columns, level.rows)
 	
 	grid = []
 	for i in range(grid_size.y):
 		grid.append([])
 		for j in range(grid_size.x):
-			if level.pattern[i][j] == "0": continue
-			var b = _create_brick(Vector2(j, i), int(level.pattern[i][j]))
+			var hp = 1
+			if level.has("pattern"):
+				if level.pattern[i][j] == "0": continue
+				hp = int(level.pattern[i][j])
+			var b = _create_brick(Vector2(j, i), hp)
 			grid[i].append(b)
 			bricks_left += 1
 			$Bricks.add_child(b)

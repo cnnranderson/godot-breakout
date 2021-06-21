@@ -1,9 +1,10 @@
 extends Node
 
-enum Scenes {START_MENU, GAME}
+enum Scenes {START_MENU, LEVEL_SELECT, GAME}
 
 const SceneMap = {
 	Scenes.START_MENU: "res://scenes/start/StartScene.tscn",
+	Scenes.LEVEL_SELECT: "res://scenes/levelselect/LevelSelectScene.tscn",
 	Scenes.GAME: "res://scenes/game/GameScene.tscn"
 }
 const COLORS = {
