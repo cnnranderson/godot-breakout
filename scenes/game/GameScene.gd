@@ -32,6 +32,7 @@ func _Event_brick_destroyed(points, coordinate):
 	$Hud/Score/Value.text = str("%05d" % GameState.total_score)
 
 func _Event_ball_destroyed():
+	# Test code change...?
 	active_balls -= 1
 
 func _Event_powerup_obtained(powerup : Powerup, pos):
