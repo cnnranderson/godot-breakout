@@ -7,12 +7,12 @@ size = 32
 extra_spacing_char = 4
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.180392, 0.196078, 0.286275, 0 )
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=9]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.180392, 0.25098, 0.321569, 0 )
 border_width_left = 2
 border_width_top = 2
@@ -21,7 +21,7 @@ border_width_bottom = 2
 border_color = Color( 1, 0.784314, 0.341176, 1 )
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.180392, 0.25098, 0.321569, 0 )
 draw_center = false
 border_width_left = 2
@@ -31,7 +31,7 @@ border_width_bottom = 2
 border_color = Color( 1, 0.784314, 0.341176, 1 )
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 1, 0.784314, 0.341176, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -52,8 +52,8 @@ Button/colors/font_color_hover = Color( 0.882353, 0.882353, 0.882353, 1 )
 Button/colors/font_color_pressed = Color( 0.180392, 0.25098, 0.321569, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = SubResource( 1 )
-Button/styles/disabled = SubResource( 2 )
-Button/styles/focus = SubResource( 3 )
-Button/styles/hover = SubResource( 4 )
-Button/styles/normal = SubResource( 5 )
-Button/styles/pressed = SubResource( 6 )
+Button/styles/disabled = SubResource( 8 )
+Button/styles/focus = SubResource( 9 )
+Button/styles/hover = SubResource( 10 )
+Button/styles/normal = SubResource( 11 )
+Button/styles/pressed = SubResource( 12 )

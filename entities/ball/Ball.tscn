@@ -30,7 +30,7 @@ visible = false
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="ScaleTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 one_shot = true
 
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
