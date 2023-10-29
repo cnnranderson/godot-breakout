@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D dissolve_texture : hint_albedo;
+uniform sampler2D dissolve_texture : source_color;
 uniform float dissolve_value : hint_range(0, 1);
 
 void fragment()

@@ -4,9 +4,9 @@ class_name Brick
 const COLOR_SINGLE = Color(Global.Palette.bricks)
 const COLOR_DOUBLE = Color(Global.Palette.bricks_double)
 
-export(bool) var is_moving = false
-export(int) var points = 50
-export(int) var hp = 1
+@export var is_moving: bool = false
+@export var points: int = 50
+@export var hp: int = 1
 
 var grid_coord = Vector2(0, 0)
 var powerup
@@ -16,7 +16,7 @@ func _ready():
 
 func _process(delta):
 	var color = COLOR_SINGLE if hp < 2 else COLOR_DOUBLE
-	$Sprite.material.set_shader_param("SelectedColor", color)
+	$Sprite2D.material.set_shader_parameter("SelectedColor", color)
 
 func hit():
 	if hp > 0:

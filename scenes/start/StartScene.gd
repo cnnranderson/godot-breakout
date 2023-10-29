@@ -1,7 +1,7 @@
-extends Control
+extends Node2D
 
-onready var PlayButton : Button = $MBox/VBox/Play
-onready var QuitButton : Button = $MBox/VBox/Quit
+@onready var PlayButton : Button = $MBox/VBox/Play
+@onready var QuitButton : Button = $MBox/VBox/Quit
 
 func _ready():
 	pass

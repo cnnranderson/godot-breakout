@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform vec4 SelectedColor : hint_color = vec4(0.18, 0.25, 0.32, 1.0);
+uniform vec4 SelectedColor : source_color = vec4(0.18, 0.25, 0.32, 1.0);
 
 void fragment()
 {

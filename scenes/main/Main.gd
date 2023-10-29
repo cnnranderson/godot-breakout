@@ -4,6 +4,8 @@ class_name Main
 var curr_scene = Global.Scenes.START_MENU
 var scene_state = 0
 var skip_transition = [false, false]
+var SCENE_DELAY = 0.05
+var TRANSITION_DELAY = 1
 
 func _ready():
 	Global.main = self
@@ -21,25 +23,25 @@ func load_scene(scene = -1, skip_intro = false, skip_outro = false):
 		0:
 			# Pause any happenings
 			get_tree().paused = true
-			$Timers/LoadTimer.set_wait_time(0.05)
+			$Timers/LoadTimer.set_wait_time(SCENE_DELAY)
 			$Timers/LoadTimer.start()
 			scene_state = 1 if not skip_transition[0] else 2
 		1:
 			# Enter transition
 			$TransitionLayer/Screen/Animation.play("transition_in")
-			$Timers/LoadTimer.set_wait_time(1)
+			$Timers/LoadTimer.set_wait_time(TRANSITION_DELAY)
 			$Timers/LoadTimer.start()
 			scene_state = 2
 		2:
 			# Load the new scene
 			print("LOADING Scene: %s" % curr_scene)
 			var children = $Scene.get_children()
-			if not children.empty():
+			if not children.is_empty():
 				children[0].queue_free()
-			var new_scene = load(Global.SceneMap[curr_scene]).instance()
+			var new_scene = load(Global.SceneMap[curr_scene]).instantiate()
 			$Scene.add_child(new_scene)
 			
-			$Timers/LoadTimer.set_wait_time(0.05)
+			$Timers/LoadTimer.set_wait_time(SCENE_DELAY)
 			$Timers/LoadTimer.start()
 			scene_state = 3 if not skip_transition[0] else 4
 		3:

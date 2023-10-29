@@ -25,7 +25,7 @@ var main : Main = null
 var debug = true
 
 func _ready():
-	pause_mode = Node.PAUSE_MODE_PROCESS
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _process(_delta):
 	if debug:

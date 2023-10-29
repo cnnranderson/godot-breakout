@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 class_name Powerup
 
 const MULTI = "res://entities/powerup/MultiBall.tscn"
@@ -7,8 +7,8 @@ const GROW_PADDLE = "res://entities/powerup/GrowBall.tscn"
 
 enum Type {MULTI, GROW_BALL, GROW_PADDLE, NONE}
 
-export var drop_speed = 2.0
-export(Type) var type = Type.NONE
+@export var drop_speed = 2.0
+@export var type: Type = Type.NONE
 
 func _process(delta):
 	position.y += drop_speed * delta

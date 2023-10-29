@@ -1,17 +1,16 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name Ball
 
 const SFX_NORMAL = "res://sounds/ball_normal.wav"
 
-export(int) var speed = 350
+@export var speed: int = 350
 
-onready var width = $Sprite.texture.get_width() * scale.x
+@onready var width = $Sprite2D.texture.get_width() * scale.x
 
 var hit_chain = 0
-var velocity = Vector2(0, 1).normalized() * speed
 
 func _ready():
-	$Sprite.material.set_shader_param("SelectedColor", Color(Global.Palette.secondary))
+	$Sprite2D.material.set_shader_parameter("SelectedColor", Color(Global.Palette.secondary))
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)

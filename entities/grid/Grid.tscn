@@ -12,11 +12,11 @@ script = ExtResource( 1 )
 
 [node name="DebugRect" type="ColorRect" parent="."]
 visible = false
-margin_left = -320.0
-margin_top = -100.0
-margin_right = 320.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 640, 200 )
+offset_left = -320.0
+offset_top = -100.0
+offset_right = 320.0
+offset_bottom = 100.0
+custom_minimum_size = Vector2( 640, 200 )
 color = Color( 0.298039, 0.298039, 0.298039, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -24,7 +24,7 @@ __meta__ = {
 
 [node name="Bricks" type="Node2D" parent="."]
 
-[node name="Area" type="Area2D" parent="."]
+[node name="Area3D" type="Area2D" parent="."]
 
-[node name="Bounds" type="CollisionShape2D" parent="Area"]
+[node name="Bounds" type="CollisionShape2D" parent="Area3D"]
 shape = SubResource( 1 )

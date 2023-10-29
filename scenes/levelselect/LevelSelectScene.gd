@@ -11,7 +11,7 @@ func _ready():
 
 func _spawn_ball(pos):
 	if preview_ball: preview_ball.queue_free()
-	preview_ball = _Ball.instance()
+	preview_ball = _Ball.instantiate()
 	preview_ball.position = pos
 	preview_ball.scale = Vector2.ONE / 2
 	preview_ball.velocity = Vector2(2, 1).normalized() * preview_ball.speed / 2
@@ -26,7 +26,7 @@ func _load_levels():
 		button.text = level.name
 		button.set_meta("id", level.id)
 		button.set_meta("name", level.name)
-		button.connect("toggled", self, "_on_Button_toggled", [level.id])
+		button.connect("toggled", Callable(self, "_on_Button_toggled").bind(level.id))
 		$LevelSelect/VBox/Scroll/List.add_child(button)
 
 func _preview_level(level_id):
@@ -41,9 +41,9 @@ func _on_Button_toggled(button_pressed, level_id):
 		_preview_level(selected_level)
 	for button in $LevelSelect/VBox/Scroll/List.get_children():
 		if selected_level == button.get_meta("id"):
-			button.pressed = true
+			button.button_pressed = true
 		else:
-			button.pressed = false
+			button.button_pressed = false
 
 func _on_PlayButton_pressed():
 	Global.main.load_scene(Global.Scenes.GAME)

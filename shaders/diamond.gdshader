@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform float progress : hint_range(0, 1);
-uniform float diamondPixelSize = 10f;
+uniform float diamondPixelSize = 10;
 uniform bool direction = false;
 
 void fragment() {

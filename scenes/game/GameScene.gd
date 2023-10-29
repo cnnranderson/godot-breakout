@@ -5,14 +5,14 @@ const _Ball = preload("res://entities/ball/Ball.tscn")
 var active_balls = 0
 
 func _ready():
-	Events.connect("brick_destroyed", self, "_Event_brick_destroyed")
-	Events.connect("ball_destroyed", self, "_Event_ball_destroyed")
-	Events.connect("game_lost", self, "_Event_game_lost")
-	Events.connect("game_won", self, "_Event_game_won")
-	Events.connect("powerup_obtained", self, "_Event_powerup_obtained")
-	Events.connect("powerup_dropped", self, "_Event_powerup_dropped")
+	Events.connect("brick_destroyed", Callable(self, "_Event_brick_destroyed"))
+	Events.connect("ball_destroyed", Callable(self, "_Event_ball_destroyed"))
+	Events.connect("game_lost", Callable(self, "_Event_game_lost"))
+	Events.connect("game_won", Callable(self, "_Event_game_won"))
+	Events.connect("powerup_obtained", Callable(self, "_Event_powerup_obtained"))
+	Events.connect("powerup_dropped", Callable(self, "_Event_powerup_dropped"))
 	
-	$Hud/StartCountdownLabel.material.set_shader_param("SelectedColor", Color(Global.Palette.secondary))
+	$Hud/StartCountdownLabel.material.set_shader_parameter("SelectedColor", Color(Global.Palette.secondary))
 	$Timers/StartTimer.start()
 
 func _process(delta):
@@ -23,7 +23,7 @@ func _process(delta):
 
 func _spawn_ball(pos):
 	active_balls += 1
-	var ball = _Ball.instance()
+	var ball = _Ball.instantiate()
 	ball.position = pos
 	$Balls.add_child(ball)
 
@@ -45,7 +45,7 @@ func _Event_powerup_obtained(powerup : Powerup, pos):
 				ball.grow()
 
 func _Event_powerup_dropped(powerup, pos):
-	var pow_item = load(powerup).instance()
+	var pow_item = load(powerup).instantiate()
 	pow_item.position = pos
 	add_child(pow_item)
 

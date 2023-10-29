@@ -14,59 +14,59 @@ scale = Vector2( 0.5, 0.5 )
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( 650, 100, 310, 100, 310, 280, 650, 280, 650, 290, 300, 290, 300, 90, 660, 90, 660, 290, 651, 290 )
+polygon = PackedVector2Array( 650, 100, 310, 100, 310, 280, 650, 280, 650, 290, 300, 290, 300, 90, 660, 90, 660, 290, 651, 290 )
 
 [node name="LevelSelect" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 280.0
-margin_bottom = 620.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 280.0
+offset_bottom = 620.0
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBox" type="VBoxContainer" parent="LevelSelect"]
-margin_right = 260.0
-margin_bottom = 600.0
-custom_constants/separation = 12
+offset_right = 260.0
+offset_bottom = 600.0
+theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="LevelSelect/VBox"]
-margin_right = 260.0
-margin_bottom = 28.0
-custom_colors/font_color = Color( 1, 0.784314, 0.341176, 1 )
+offset_right = 260.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color( 1, 0.784314, 0.341176, 1 )
 text = "Levels:"
 
 [node name="Scroll" type="ScrollContainer" parent="LevelSelect/VBox"]
-margin_top = 40.0
-margin_right = 260.0
-margin_bottom = 556.0
+offset_top = 40.0
+offset_right = 260.0
+offset_bottom = 556.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="List" type="VBoxContainer" parent="LevelSelect/VBox/Scroll"]
-margin_right = 260.0
-margin_bottom = 516.0
+offset_right = 260.0
+offset_bottom = 516.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 13
+theme_override_constants/separation = 13
 
 [node name="BackButton" type="Button" parent="LevelSelect/VBox"]
-margin_top = 568.0
-margin_right = 260.0
-margin_bottom = 600.0
+offset_top = 568.0
+offset_right = 260.0
+offset_bottom = 600.0
 text = "Back To Menu"
 
 [node name="PlayButton" type="Button" parent="."]
-margin_left = 390.0
-margin_top = 300.0
-margin_right = 590.0
-margin_bottom = 332.0
-rect_min_size = Vector2( 200, 32 )
+offset_left = 390.0
+offset_top = 300.0
+offset_right = 590.0
+offset_bottom = 332.0
+custom_minimum_size = Vector2( 200, 32 )
 theme = ExtResource( 2 )
 disabled = true
 text = "Play Level"
