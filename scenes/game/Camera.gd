@@ -10,7 +10,7 @@ var trauma = 0.0  # Current shake strength.
 var trauma_power = 2  # Trauma exponent. Use [2, 3].
 
 func _ready():
-	Events.connect("screen_shake", Callable(self, "add_trauma"))
+	Events.screen_shake.connect(add_trauma)
 	pass
 
 func add_trauma():

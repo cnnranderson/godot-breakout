@@ -5,12 +5,12 @@ const _Ball = preload("res://entities/ball/Ball.tscn")
 var active_balls = 0
 
 func _ready():
-	Events.connect("brick_destroyed", Callable(self, "_Event_brick_destroyed"))
-	Events.connect("ball_destroyed", Callable(self, "_Event_ball_destroyed"))
-	Events.connect("game_lost", Callable(self, "_Event_game_lost"))
-	Events.connect("game_won", Callable(self, "_Event_game_won"))
-	Events.connect("powerup_obtained", Callable(self, "_Event_powerup_obtained"))
-	Events.connect("powerup_dropped", Callable(self, "_Event_powerup_dropped"))
+	Events.brick_destroyed.connect(_Event_brick_destroyed)
+	Events.ball_destroyed.connect(_Event_ball_destroyed)
+	Events.powerup_obtained.connect(_Event_powerup_obtained)
+	Events.powerup_dropped.connect(_Event_powerup_dropped)
+	# Events.game_lost.connect(_Event_game_lost)
+	# Events.game_won.connect(_Event_game_won)
 	
 	$Hud/StartCountdownLabel.material.set_shader_parameter("SelectedColor", Color(Global.Palette.secondary))
 	$Timers/StartTimer.start()
