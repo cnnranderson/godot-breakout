@@ -1,7 +1,7 @@
 extends Node2D
 class_name Main
 
-var curr_scene = Global.Scenes.START_MENU
+var curr_scene: Global.Scenes = Global.Scenes.START_MENU
 var scene_state = 0
 var skip_transition = [false, false]
 var SCENE_DELAY = 0.05
@@ -11,11 +11,11 @@ func _ready():
 	Global.main = self
 	load_scene(Global.Scenes.START_MENU, true, true)
 
-func load_scene(scene = -1, skip_intro = false, skip_outro = false):
+func load_scene(scene: Global.Scenes = Global.Scenes.NONE, skip_intro = false, skip_outro = false):
 	# Validate scene
-	if scene != -1:
+	if scene != 0:
 		assert(scene in Global.Scenes.values())
-		scene_state = 0
+		scene_state = 1
 		curr_scene = scene
 		skip_transition = [skip_intro, skip_outro]
 	

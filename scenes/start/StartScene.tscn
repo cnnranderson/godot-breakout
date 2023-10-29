@@ -13,8 +13,10 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[node name="StartScene" type="Node2D"]
+[node name="StartScene" type="Node2D" node_paths=PackedStringArray("PlayButton", "QuitButton")]
 script = ExtResource("1")
+PlayButton = NodePath("Control/MBox/VBox/Play")
+QuitButton = NodePath("Control/MBox/VBox/Quit")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(720, 480)

@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var PlayButton : Button = $MBox/VBox/Play
-@onready var QuitButton : Button = $MBox/VBox/Quit
+@export var PlayButton: Button
+@export var QuitButton: Button
 
 func _ready():
 	pass
