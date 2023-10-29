@@ -15,7 +15,7 @@ func load_scene(scene: Global.Scenes = Global.Scenes.NONE, skip_intro = false, s
 	# Validate scene
 	if scene != 0:
 		assert(scene in Global.Scenes.values())
-		scene_state = 1
+		scene_state = Global.Scenes.START_MENU
 		curr_scene = scene
 		skip_transition = [skip_intro, skip_outro]
 	
@@ -28,6 +28,7 @@ func load_scene(scene: Global.Scenes = Global.Scenes.NONE, skip_intro = false, s
 			scene_state = 1 if not skip_transition[0] else 2
 		1:
 			# Enter transition
+			print("in")
 			$TransitionLayer/Screen/Animation.play("transition_in")
 			$Timers/LoadTimer.set_wait_time(TRANSITION_DELAY)
 			$Timers/LoadTimer.start()
@@ -46,8 +47,9 @@ func load_scene(scene: Global.Scenes = Global.Scenes.NONE, skip_intro = false, s
 			scene_state = 3 if not skip_transition[0] else 4
 		3:
 			# Exit transition
+			print("out")
 			$TransitionLayer/Screen/Animation.play("transition_out")
-			$Timers/LoadTimer.set_wait_time(1)
+			$Timers/LoadTimer.set_wait_time(TRANSITION_DELAY)
 			$Timers/LoadTimer.start()
 			scene_state = 4
 		4:
