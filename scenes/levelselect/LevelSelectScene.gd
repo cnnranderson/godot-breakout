@@ -14,8 +14,8 @@ func _spawn_ball(pos):
 	preview_ball = _Ball.instantiate()
 	preview_ball.position = pos
 	preview_ball.scale = Vector2.ONE / 2
-	preview_ball.velocity = Vector2(2, 1).normalized() * preview_ball.speed / 2
 	add_child(preview_ball)
+	preview_ball.velocity = Vector2(1, 1).normalized() * preview_ball.speed / 2
 
 func _load_levels():
 	print(LevelLoader.level_list)
@@ -26,7 +26,7 @@ func _load_levels():
 		button.text = level.name
 		button.set_meta("id", level.id)
 		button.set_meta("name", level.name)
-		button.connect("toggled", Callable(self, "_on_Button_toggled").bind(level.id))
+		button.toggled.connect(_on_Button_toggled.bind(level.id))
 		$LevelSelect/VBox/Scroll/List.add_child(button)
 
 func _preview_level(level_id):

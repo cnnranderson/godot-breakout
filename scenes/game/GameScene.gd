@@ -51,7 +51,7 @@ func _Event_powerup_dropped(powerup, pos):
 
 func _on_StartTimer_timeout():
 	$Grid.reset()
-	_spawn_ball(Vector2(360, 240))
+	_spawn_ball(Vector2(360, 340))
 	$Hud/StartCountdownLabel.visible = false
 
 func _on_BackButton_pressed():

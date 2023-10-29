@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://da1lhb2vw0goq"]
 
 [ext_resource type="Script" path="res://scenes/game/GameScene.gd" id="1"]
-[ext_resource type="PackedScene" path="res://entities/paddle/Paddle.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://entities/grid/Grid.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://b23yv5cm7d5th" path="res://entities/paddle/Paddle.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dddwh4qf5qpg5" path="res://entities/grid/Grid.tscn" id="3"]
 [ext_resource type="Theme" uid="uid://bmd3uyc8hoh70" path="res://base_theme.tres" id="4"]
 [ext_resource type="Shader" path="res://shaders/palette.gdshader" id="5"]
 [ext_resource type="Script" path="res://scenes/game/Camera.gd" id="6"]

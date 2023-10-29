@@ -96,6 +96,7 @@ mouse_filter = 2
 color = Color(1, 0.784314, 0.341176, 1)
 
 [node name="Animation" type="AnimationPlayer" parent="TransitionLayer/Screen"]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_8cdyr")
 }

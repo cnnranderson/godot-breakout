@@ -10,7 +10,7 @@ func play_sound(type, sound_file: String, pitch = 1.0):
 	var sound = AudioStreamPlayer.new()
 	sound.stream = load(sound_file)
 	sound.pitch_scale = pitch
-	sound.connect("finished", Callable(sound, "queue_free"))
+	sound.finished.connect(sound.queue_free)
 	_set_volume(sound, type)
 	add_child(sound)
 	sound.play()
@@ -24,7 +24,7 @@ func play_sound_2d(type, sound_file: String, sound_position: Vector2, pitch = 1.
 	sound.position = sound_position
 	sound.stream = load(sound_file)
 	sound.pitch_scale = pitch
-	sound.connect("finished", Callable(sound, "queue_free"))
+	sound.finished.connect(sound.queue_free)
 	_set_volume(sound, type)
 	add_child(sound)
 	sound.play()

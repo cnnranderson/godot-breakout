@@ -11,7 +11,7 @@ var x_bounds = -320
 var y_bounds = -100
 
 func _ready():
-	Events.connect("brick_destroyed", Callable(self, "_Event_brick_destroyed"))
+	Events.brick_destroyed.connect(_Event_brick_destroyed)
 
 func reset():
 	_init_grid()
